@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://cunwhwjs31j23"]
+
+[ext_resource type="Texture2D" uid="uid://cqdugm6htja67" path="res://Art/Sprites/Megaman.png" id="1_g148u"]
+[ext_resource type="Script" path="res://Scripts/Movement.gd" id="1_tdo87"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8o4yl"]
+radius = 12.0
+height = 40.0
+
+[sub_resource type="Animation" id="Animation_qfr65"]
+resource_name = "walk_right"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(121, 164, 27, 40), Rect2(149, 163, 23, 41), Rect2(173, 163, 31, 41), Rect2(206, 166, 37, 38), Rect2(246, 166, 40, 38), Rect2(288, 164, 34, 40), Rect2(324, 163, 29, 41), Rect2(354, 161, 26, 43), Rect2(382, 163, 26, 41), Rect2(409, 163, 33, 41), Rect2(483, 167, 40, 37), Rect2(525, 166, 34, 38), Rect2(561, 165, 31, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kmj4w"]
+resource_name = "idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(102, 117, 32, 41), Rect2(172, 117, 32, 41), Rect2(207, 117, 32, 41), Rect2(172, 117, 32, 41), Rect2(102, 117, 32, 41)]
+}
+
+[sub_resource type="Animation" id="Animation_rgito"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(102, 117, 32, 41)]
+}
+
+[sub_resource type="Animation" id="Animation_05nrm"]
+resource_name = "walk_left"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(121, 164, 27, 40), Rect2(149, 163, 23, 41), Rect2(173, 163, 31, 41), Rect2(206, 166, 37, 38), Rect2(246, 166, 40, 38), Rect2(288, 164, 34, 40), Rect2(324, 163, 29, 41), Rect2(354, 161, 26, 43), Rect2(382, 163, 26, 41), Rect2(409, 163, 33, 41), Rect2(483, 167, 40, 37), Rect2(525, 166, 34, 38), Rect2(561, 165, 31, 39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wmxl"]
+_data = {
+"RESET": SubResource("Animation_rgito"),
+"idle": SubResource("Animation_kmj4w"),
+"walk_left": SubResource("Animation_05nrm"),
+"walk_right": SubResource("Animation_qfr65")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xcco"]
+size = Vector2(640, 37)
+
+[node name="Root" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(299, 249)
+script = ExtResource("1_tdo87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_8o4yl")
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_g148u")
+region_enabled = true
+region_rect = Rect2(102, 117, 32, 41)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Sprite"]
+libraries = {
+"": SubResource("AnimationLibrary_4wmxl")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(320, 340.5)
+shape = SubResource("RectangleShape2D_8xcco")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/CollisionShape2D"]

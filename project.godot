@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="MegamanClone"
+run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.1", "Forward Plus")
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/mode=3
+window/size/initial_screen=1
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="BulletmancerGD"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[importality]
+
+temporary_files_directory_path="C:/Projects/Godot/BulletmancerGD"
+aseprite_or_libre_sprite_command="C:\\Program Files (x86)\\Steam\\steamapps\\common\\Aseprite\\Aseprite.exe"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true
