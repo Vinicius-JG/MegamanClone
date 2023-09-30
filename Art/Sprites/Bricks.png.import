@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dajd5oynrxgep"
-path="res://.godot/imported/TilemapPlaceholder.png-00c87608df08bcde0bb18c2c51a456b4.ctex"
+uid="uid://deechywya2fyh"
+path="res://.godot/imported/Bricks.png-4fda97e54e772c9a125baf9d528866c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/TilemapPlaceholder.png"
-dest_files=["res://.godot/imported/TilemapPlaceholder.png-00c87608df08bcde0bb18c2c51a456b4.ctex"]
+source_file="res://Art/Sprites/Bricks.png"
+dest_files=["res://.godot/imported/Bricks.png-4fda97e54e772c9a125baf9d528866c0.ctex"]
 
 [params]
 

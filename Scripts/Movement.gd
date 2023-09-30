@@ -8,6 +8,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var on_floor = true
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite
+@onready var collision = $CollisionShape2D as CollisionShape2D
+@onready var slide_collision = $SlideCollisionShape2D as CollisionShape2D
+
 
 var sliding = false
 
@@ -34,9 +37,12 @@ func _physics_process(delta):
 		anim.play("slide")
 		velocity.x = -1 * SPEED * 1.5 if sprite.flip_h else 1 * SPEED * 1.5
 		print(velocity)
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.3).timeout
 		velocity.x = 0
 		sliding = false
+	
+	slide_collision.disabled = !sliding
+	collision.disabled = sliding	
 	
 func handle_animations():
 	if !sliding:
