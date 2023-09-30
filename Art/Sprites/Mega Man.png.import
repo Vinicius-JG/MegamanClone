@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqdugm6htja67"
-path="res://.godot/imported/Megaman.png-46ba6858fa18b237090d631c5d99cee3.ctex"
+uid="uid://jp7bwswtugf8"
+path="res://.godot/imported/Mega Man.png-c6355c9ce03662684b8526923bd69dcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Megaman.png"
-dest_files=["res://.godot/imported/Megaman.png-46ba6858fa18b237090d631c5d99cee3.ctex"]
+source_file="res://Art/Sprites/Mega Man.png"
+dest_files=["res://.godot/imported/Mega Man.png-c6355c9ce03662684b8526923bd69dcb.ctex"]
 
 [params]
 
